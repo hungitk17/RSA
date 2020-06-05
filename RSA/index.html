@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src=".\RSA.js"></script>
+    <title>Demo RSA</title>
+    <style>
+        .inBold{
+            font-weight : bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>Xin Chao!</div> -->
+    <!-- <div id="root"></div> -->
+    <!-- <script> -->
+        <!-- document.getElementById("root").innerHTML = "Hello World";  -->
+    <!-- </script> -->
+    <div style="border:2px solid black;width:600px;height:1100px;background-color:#5dbcd2;align-content:center;margin-left: 500px;">
+        <h1 style="text-align: center;">DemoRSA</h1>
+        <form>
+            <fieldset>
+                <legend>Setup Keys</legend>
+                <label class="inBold">1. Choose two prime numbers p and q</label><br><br>
+                <label for="p">p (very large prime number)</label>
+                <input type="number" id="p" name="p" style="margin-left:100px"><br><br>
+                <label for="q">q (very large prime number)</label>
+                <input type="number" id="q" name="q" style="margin-left:100px"><br><br>
+                <label for="m">m = p * q</label>
+                <input type="number" id="m" name="m" style="margin-left:220px"><br><br>
+                <label for="k">k = (p - 1) * (q - 1)</label>
+                <input type="number" id="k" name="k" style="margin-left:160px"><br><br>
+                <label class="inBold">2. Choose e coprime to k</label><br><br>
+                <label for="e">e (large natural number)</label>
+                <input type="number" id="e" name="e" style="margin-left:127px"><br><br>
+                <label class="inBold">3. Choose x and y to satisfy e*x - k*y = 1</label><br><br>
+                <label for="x">x (KEEP SECRET)</label>
+                <input type="number" id="x" name="x" style="margin-left:155px"><br><br>
+                <label for="y">y</label>
+                <input type="number" id="y" name="y" style="margin-left:274px"><br><br>
+                <label class="inBold">4. Publish e and m as the public key.<br>
+                        Keep x private and delete p, q, k, y.
+                </label><br><br>
+            </fieldset>
+            <fieldset>
+                <legend>Encription</legend>
+                <label class="inBold">5. Encypt input</label><br><br>
+                <label for="input">Input</label>
+                <input type="text" id="input" name="input" style="margin-left:250px"><br><br>
+                <label for="Enw">W (coprime to m and less than m)</label>
+                <input type="number" id="Enw" name="Enw" style="margin-left:65px"><br><br>
+                <label for="Enc">C = W^e (mod m)</label>
+                <input type="number" id="Enc" name="Enc" style="margin-left:165px"><br><br>
+                <label class="inBold">6. Public C</label>
+            </fieldset>
+            <fieldset>
+                <legend>Decription</legend>
+                <label class="inBold">7. Decrypt C</label><br><br>
+                <label for="Dec">C</label>
+                <input type="number" id="Dec" name="Dec" style="margin-left:274px"><br><br>
+                <label for="Dew">W = C^x (mod m)</label>
+                <input type="text" id="Dew" name="Dew" style="margin-left:167px"><br><br>
+                <label for="output">OutPut:</label>
+                <input type="number" id="output" name="output" style="margin-left:236px"><br><br>
+            </fieldset>
+            <br><br>
+            <div style="color: red;text-align: center;">
+                <label class="inBold">Elapsed Time: </label><label class="inBold" style="color: red;text-align: center;">00.00.00</label><br><br>
+            </div>
+            <div style="color: red;text-align: center;">
+                <button type="button" class="btn btn-primary">Run</button>
+                <button type="button" class="btn btn-danger">Close</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
